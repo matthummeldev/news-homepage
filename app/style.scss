@@ -199,7 +199,7 @@ main {
 
   @media (min-width: 1200px) {
     display: block;
-    background-image: url("/images/image-web-3-desktop.jpg");
+    background-image: url("https://raw.githubusercontent.com/mattrhummel/news-homepage/main/images/image-web-3-desktop.jpg");
     background-position: top left;
     background-repeat: no-repeat;
     height: 300px;
@@ -210,7 +210,7 @@ main {
 .mobile-banner {
   display: block;
   position: relative;
-  background-image: url("/images/image-web-3-mobile.jpg");
+  background-image: url("https://raw.githubusercontent.com/mattrhummel/news-homepage/main/images/images/image-web-3-mobile.jpg");
   background-position: top center;
   background-repeat: no-repeat;
   height: auto;
