@@ -1,0 +1,11 @@
+{
+  "name": "news-homepage",
+  "version": "1.0.0",
+  "description": "Front-end Mentor Challend: News Homepage",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "news-homepage"
+  },
+  "author": "Matt Hummel",
+  "license": "ISC"
