@@ -1,0 +1,1 @@
+{"version":3,"names":[],"mappings":"","sources":["styles.scss"],"sourcesContent":["@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap');\n@import 'base';\n@import 'navigation';\n@import 'layout';\n@import 'components';\n@import 'grid';\n\n\n\n\n\n"],"file":"styles.css"}

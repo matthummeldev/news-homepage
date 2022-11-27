@@ -1,0 +1,56 @@
+.desktop-banner {
+    display: none;
+  
+    @media (min-width: 1200px) {
+      display: block;
+      background-image: url("images/image-web-3-desktop.jpg");
+      background-position: top left;
+      background-repeat: no-repeat;
+      height: 300px;
+      width: 100%;
+    }
+  }
+  
+  .mobile-banner {
+    display: block;
+    position: relative;
+    background-image: url("images/image-web-3-mobile.jpg");
+    background-position: top center;
+    background-repeat: no-repeat;
+    height: auto;
+    min-height: 300px;
+    width: auto;
+    margin: 0 1.25em 1.25em 20px;
+  
+    @media (min-width: 1200px) {
+      display: none;
+    }
+  }
+  
+.button {
+    background-color: $soft-red;
+    color: $off-white;
+    font-size: 14px;
+    line-height: 24px;
+    padding: 0.75em 36px;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    text-decoration: none;
+
+    &:hover {
+      background-color: $soft-orange;
+    }
+  }
+
+  .attribution {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    padding: 1.25em 0;
+  
+    a {
+      padding: 0 0 0 5px;
+    }
+  }

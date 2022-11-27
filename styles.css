@@ -1,7 +1,132 @@
-@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap");
+.nav-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  height: 61px;
+  padding: 0;
+  z-index: 1000;
+}
+
+.menu {
+  display: flex;
+  flex-direction: row;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menu > li {
+  margin: 0 1rem;
+  overflow: hidden;
+}
+.menu > li a {
+  color: hsl(240deg, 100%, 5%);
+  text-decoration: none;
+  font-size: 1.125em;
+}
+.menu > li a:hover {
+  color: hsl(35deg, 77%, 62%);
+  text-decoration: underline;
+}
+
+.menu-button-container {
+  display: none;
+  height: 100%;
+  width: 30px;
+  cursor: pointer;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#menu-toggle {
+  display: none;
+}
+
+.menu-button,
+.menu-button::before,
+.menu-button::after {
+  display: block;
+  background-color: hsl(240deg, 100%, 5%);
+  position: absolute;
+  height: 4px;
+  width: 30px;
+  transition: transform 400ms cubic-bezier(0.23, 1, 0.32, 1);
+  border-radius: 2px;
+  z-index: 10000;
+}
+
+.menu-button::before {
+  content: "";
+  margin-top: -8px;
+}
+
+.menu-button::after {
+  content: "";
+  margin-top: 8px;
+}
+
+#menu-toggle:checked + .menu-button-container .menu-button::before {
+  margin-top: 0px;
+  transform: rotate(405deg);
+}
+
+#menu-toggle:checked + .menu-button-container .menu-button {
+  background: rgba(255, 255, 255, 0);
+}
+
+#menu-toggle:checked + .menu-button-container .menu-button::after {
+  margin-top: 0px;
+  transform: rotate(-405deg);
+}
+
+@media (max-width: 700px) {
+  .menu-button-container {
+    display: flex;
+    background-color: hsl(36deg, 100%, 99%);
+  }
+  .menu {
+    position: absolute;
+    top: 0;
+    margin-top: 0;
+    left: 0;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+    justify-content: center;
+  }
+  #menu-toggle ~ .menu li {
+    height: 0;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  #menu-toggle:checked ~ .menu {
+    background-color: hsl(36deg, 100%, 99%);
+  }
+  #menu-toggle:checked ~ .menu li {
+    height: 2.5em;
+    padding: 0.5em 0 0.5em 2.5em;
+    transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
+    background-color: hsl(36deg, 100%, 99%);
+  }
+  .menu > li {
+    display: flex;
+    justify-content: start;
+    margin: 0;
+    padding: 0.5em 0;
+    width: 100%;
+    color: white;
+  }
+  .menu > li:not(:last-child) {
+    border-bottom: 1px solid #444;
+  }
+}
 body {
-  background-color: hsl(36deg, 100%, 99%);
+  background-color: hwb(36 98% 0%);
   font: 15px "Intern", Arial, sans-serif;
 }
 
@@ -29,95 +154,75 @@ header {
   width: 100%;
   align-items: center;
   padding: 40px 20px;
-  flex: 1 1 1;
+  position: relative;
 }
 
-/* dummy content */
 .content {
   transition: margin 0.3s ease-in-out;
   width: 100%;
   max-width: 1440px;
 }
 
-label {
-  z-index: 1;
-}
-
-/* big screens */
-nav[role=off-canvas] {
-  transition-duration: 0.3s, 0.5s;
-  transition-timing-function: ease-in-out;
-  transition-property: left, opacity, box-shadow;
-  display: flex;
-  justify-content: end;
-}
-nav[role=off-canvas] a {
-  color: hsl(240deg, 100%, 5%);
-}
-nav[role=off-canvas] ul {
-  padding: 0;
-}
-nav[role=off-canvas] ul > li {
-  display: inline-block;
-  padding: 0 12px;
-}
-
-/* small screens */
-@media screen and (max-width: 44em) {
-  nav[role=off-canvas] {
-    position: fixed;
-    top: 3em;
-    right: -20em;
-    width: 20em;
-    z-index: 2;
-    height: 100vh;
-    background-color: hsl(36deg, 100%, 99%);
-  }
-  nav[role=off-canvas] ul {
-    width: 100%;
-  }
-  nav[role=off-canvas] ul li {
-    display: block;
-    padding: 12px;
-    text-align: left;
-  }
-  label:after {
-    content: "≡";
-    font-size: 2.8em;
-  }
-  input:checked ~ nav[role=off-canvas] {
-    right: 0;
-    /*do not remove*/
-  }
-  input:checked ~ nav[role=off-canvas] ul > li {
-    transition-duration: 0.3s, 0.5s;
-    transition-timing-function: ease-in-out;
-    padding-left: 30px;
-  }
-  input:checked ~ nav[role=off-canvas] ul > li:hover {
-    padding-left: 3.5em;
-  }
-  input:checked ~ .content {
-    margin-left: 20em;
-    margin-right: -20em;
-  }
-}
 main {
   display: flex;
   flex-wrap: wrap;
 }
-main .button {
+
+.desktop-banner {
+  display: none;
+}
+@media (min-width: 1200px) {
+  .desktop-banner {
+    display: block;
+    background-image: url("images/image-web-3-desktop.jpg");
+    background-position: top left;
+    background-repeat: no-repeat;
+    height: 300px;
+    width: 100%;
+  }
+}
+
+.mobile-banner {
+  display: block;
+  position: relative;
+  background-image: url("images/image-web-3-mobile.jpg");
+  background-position: top center;
+  background-repeat: no-repeat;
+  height: auto;
+  min-height: 300px;
+  width: auto;
+  margin: 0 1.25em 1.25em 20px;
+}
+@media (min-width: 1200px) {
+  .mobile-banner {
+    display: none;
+  }
+}
+
+.button {
   background-color: hsl(5deg, 85%, 63%);
   color: hsl(36deg, 100%, 99%);
   font-size: 14px;
   line-height: 24px;
-  padding: 12px 36px;
+  padding: 0.75em 36px;
   text-transform: uppercase;
   letter-spacing: 4px;
   text-decoration: none;
 }
-main .button:hover {
+.button:hover {
   background-color: hsl(35deg, 77%, 62%);
+}
+
+.attribution {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  padding: 1.25em 0;
+}
+.attribution a {
+  padding: 0 0 0 5px;
 }
 
 .grid-container {
@@ -159,37 +264,6 @@ main .button:hover {
   padding: 0;
 }
 
-.desktop-banner {
-  display: none;
-}
-@media (min-width: 1200px) {
-  .desktop-banner {
-    display: block;
-    background-image: url("https://raw.githubusercontent.com/mattrhummel/news-homepage/main/images/image-web-3-desktop.jpg");
-    background-position: top left;
-    background-repeat: no-repeat;
-    height: 300px;
-    width: 100%;
-  }
-}
-
-.mobile-banner {
-  display: block;
-  position: relative;
-  background-image: url("https://raw.githubusercontent.com/mattrhummel/news-homepage/main/images/image-web-3-mobile.jpg");
-  background-position: top center;
-  background-repeat: no-repeat;
-  height: auto;
-  min-height: 300px;
-  width: auto;
-  margin: 0 20px 20px 20px;
-}
-@media (min-width: 1200px) {
-  .mobile-banner {
-    display: none;
-  }
-}
-
 .item2 {
   grid-column: 3;
   grid-row: 1/span 2;
@@ -226,12 +300,15 @@ main .button:hover {
 }
 
 .item-row {
-  margin: auto;
+  margin: auto 0;
   align-content: center;
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
+  align-items: flex-start;
   padding: 50px 0;
+}
+.item-row h3 {
+  min-width: 100%;
 }
 .item-row h3 a {
   color: hsl(36deg, 100%, 100%);
@@ -295,10 +372,10 @@ aside ul {
   grid-row-start: 1;
   grid-column-start: 1;
   grid-row-end: 1;
-  grid-column-end: 2;
+  grid-column-end: 1;
 }
 .latest-post li.post-item .col-1 img {
-  width: 100;
+  width: 100%;
   height: auto;
 }
 .latest-post li.post-item .col-2 {
@@ -330,16 +407,4 @@ aside ul {
   color: hsl(35deg, 77%, 62%);
 }
 
-.attribution {
-  display: flex;
-  width: 100%;
-  justify-content: center;
-  align-items: center;
-  margin: auto;
-  padding: 20px 0;
-}
-.attribution a {
-  padding: 0 0 0 5px;
-}
-
-/*# sourceMappingURL=style.scss.map */
+/*# sourceMappingURL=styles.css.map */

@@ -1,0 +1,2 @@
+body{background-color:hwb(36 98% 0);font:15px Intern,Arial,sans-serif}*{box-sizing:border-box;margin:0;padding:0;font-size:15px}.container{display:flex;height:100vh;width:100%;max-width:1140px;justify-content:center;flex-wrap:wrap;margin:auto}header{display:flex;flex-wrap:unset;justify-content:space-between;width:100%;align-items:center;padding:40px 20px;position:relative}.content{transition:margin .3s ease-in-out;width:100%;max-width:1440px}main{display:flex;flex-wrap:wrap}
+/*# sourceMappingURL=_layout.min.css.map */
