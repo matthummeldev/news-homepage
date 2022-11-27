@@ -30,8 +30,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://www.frontendmentor.io/solutions/responsive-landing-page-using-css-grid-and-flexbox-Nycrb8sO57)
-- Live Site URL: [Add live site URL here](https://mattrhummel.github.io/news-homepage/)
+- Solution URL: [View Solution](https://www.frontendmentor.io/solutions/responsive-landing-page-using-css-grid-and-flexbox-Nycrb8sO57)
+- Live Site URL: [View Project](https://mattrhummel.github.io/news-homepage/)
 
 ### Built with
 
